@@ -18,7 +18,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/minimum-path-sum
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
+*/
 package leetcode
 
 func minPathSum(grid [][]int) int {
@@ -29,15 +29,15 @@ func minPathSum(grid [][]int) int {
 	m := len(grid[0])
 	a := make([]int, m)
 	a[0] = grid[0][0]
-	for i:=0; i<m-1; i++ {
+	for i := 0; i < m-1; i++ {
 		a[i+1] = a[i] + grid[0][i+1]
 	}
 	if n == 1 {
 		return a[m-1]
 	}
-	for k:=1;k<n;k++{
+	for k := 1; k < n; k++ {
 		a[0] += grid[k][0]
-		for i:=0;i<m-1;i++ {
+		for i := 0; i < m-1; i++ {
 			if a[i+1] < a[i] {
 				a[i+1] = a[i+1] + grid[k][i+1]
 			} else {
@@ -51,13 +51,13 @@ func minPathSum(grid [][]int) int {
 func minSum(grid [][]int, m, n int) int {
 	sum := 0
 	if n == 1 {
-		for i:=0; i<m; i++ {
+		for i := 0; i < m; i++ {
 			sum += grid[0][i]
 		}
 		return sum
 	}
 	if m == 1 {
-		for i:=0; i<n; i++ {
+		for i := 0; i < n; i++ {
 			sum += grid[i][0]
 		}
 		return sum

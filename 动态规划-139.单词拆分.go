@@ -25,7 +25,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/word-break
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
+*/
 package leetcode
 
 func wordBreak(s string, wordDict []string) bool {
@@ -38,7 +38,7 @@ func wordBreak(s string, wordDict []string) bool {
 	k := make([]int, n+1)
 	ok := false
 	k[0] = 1
-	for i:=0;i<n;i++ {
+	for i := 0; i < n; i++ {
 		for j := 0; j <= i; j++ {
 			if k[j] == 0 {
 				continue
@@ -46,7 +46,7 @@ func wordBreak(s string, wordDict []string) bool {
 			_, ok = m[s[j:i+1]]
 			if ok {
 				k[i+1] = 1
-				if i == n - 1 {
+				if i == n-1 {
 					return true
 				}
 			}
@@ -61,7 +61,7 @@ func doWordBreak(s string, m map[string]int) bool {
 		return true
 	}
 	n := len(s)
-	for i:=n-1;i>0;i--{
+	for i := n - 1; i > 0; i-- {
 		t := s[i:n]
 		_, ok = m[t]
 		if ok && doWordBreak(s[:i], m) {

@@ -20,7 +20,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/house-robber
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
+*/
 package leetcode
 
 func rob(nums []int) int {
@@ -34,7 +34,7 @@ func rob(nums []int) int {
 		return maxRob(nums[0], nums[1])
 	}
 	a, b := nums[0], maxRob(nums[0], nums[1])
-	for i:=2;i<n;i++{
+	for i := 2; i < n; i++ {
 		a, b = b, maxRob(a+nums[i], b)
 	}
 	return b

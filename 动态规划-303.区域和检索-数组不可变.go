@@ -17,31 +17,28 @@ sumRange(0, 5) -> -3
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/range-sum-query-immutable
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
+*/
 package leetcode
 
 type NumArray struct {
 	Num []int
 }
 
-
 func Constructor(nums []int) NumArray {
-	a := NumArray{Num:make([]int, len(nums))}
+	a := NumArray{Num: make([]int, len(nums))}
 	for i, v := range nums {
 		a.Num[i] = v
 	}
 	return a
 }
 
-
 func (this *NumArray) SumRange(i int, j int) int {
 	sum := 0
-	for k:=i;k<=j;k++{
+	for k := i; k <= j; k++ {
 		sum += this.Num[k]
 	}
 	return sum
 }
-
 
 /**
  * Your NumArray object will be instantiated and called as such:

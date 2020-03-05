@@ -22,7 +22,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/decode-ways
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
+*/
 package leetcode
 
 func numDecodings(s string) int {
@@ -37,16 +37,16 @@ func numDecodings(s string) int {
 		return 1
 	}
 	a, b := 1, 1
-	for i:=1; i<n;i++{
+	for i := 1; i < n; i++ {
 		if s[i-1] != byte('2') && s[i-1] != byte('1') && s[i] == byte('0') {
 			return 0
 		}
-		if s[i-1]>byte('2') || s[i-1] == byte('0') || (s[i-1]==byte('2') && s[i]>byte('6')) {
+		if s[i-1] > byte('2') || s[i-1] == byte('0') || (s[i-1] == byte('2') && s[i] > byte('6')) {
 			a, b = b, b
-		} else if s[i] == byte('0')  {
+		} else if s[i] == byte('0') {
 			a, b = b, a
 		} else {
-			a, b = b, a + b
+			a, b = b, a+b
 		}
 	}
 	return b
@@ -61,12 +61,12 @@ func numDecodingsRecrusive(s string) int {
 		return 1
 	}
 	if n == 2 {
-		if s[0]>byte('2') || (s[0]==byte('2') && s[1]>byte('6')) {
+		if s[0] > byte('2') || (s[0] == byte('2') && s[1] > byte('6')) {
 			return 1
 		}
 		return 2
 	}
-	if s[n-2]>byte('2') || (s[n-2]==byte('2') && s[n-1]>byte('6')) {
+	if s[n-2] > byte('2') || (s[n-2] == byte('2') && s[n-1] > byte('6')) {
 		return numDecodings(s[:n-1])
 	}
 	return numDecodings(s[:n-2]) + numDecodings(s[:n-1])

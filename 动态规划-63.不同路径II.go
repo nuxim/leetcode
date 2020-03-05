@@ -30,7 +30,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/unique-paths-ii
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
+*/
 package leetcode
 
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
@@ -43,7 +43,7 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 		return 0
 	}
 	if n == 1 {
-		for i:=0; i<m; i++ {
+		for i := 0; i < m; i++ {
 			if obstacleGrid[0][i] == 1 {
 				return 0
 			}
@@ -51,7 +51,7 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 		return 1
 	}
 	if m == 1 {
-		for i:=0; i<n; i++ {
+		for i := 0; i < n; i++ {
 			if obstacleGrid[i][0] == 1 {
 				return 0
 			}
@@ -59,14 +59,14 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 		return 1
 	}
 	k := make([]int, m)
-	for i:=m-1; i>=0; i-- {
+	for i := m - 1; i >= 0; i-- {
 		if obstacleGrid[n-1][i] == 1 {
 			break
 		}
 		k[i] = 1
 	}
-	for i:=n-2; i>=0; i-- {
-		for j:=m-1; j>0; j-- {
+	for i := n - 2; i >= 0; i-- {
+		for j := m - 1; j > 0; j-- {
 			if obstacleGrid[i][j] == 1 {
 				k[j] = 0
 			}

@@ -21,7 +21,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
+*/
 package leetcode
 
 func maxProfit(prices []int) int {
@@ -30,15 +30,15 @@ func maxProfit(prices []int) int {
 		return 0
 	}
 	a, b, max := prices[0], prices[1], 0
-	for i:=1; i<n; i++ {
+	for i := 1; i < n; i++ {
 		if prices[i] < a {
-			a, b = prices[i] , prices[i]
+			a, b = prices[i], prices[i]
 			continue
 		}
 		if b < prices[i] {
 			b = prices[i]
 		}
-		if max < b - a {
+		if max < b-a {
 			max = b - a
 		}
 	}

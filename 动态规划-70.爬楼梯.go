@@ -25,12 +25,12 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/climbing-stairs
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
+*/
 package leetcode
 
 func climbStairs(n int) int {
 	a, b := 1, 1
-	for i:=0; i<n; i++ {
+	for i := 0; i < n; i++ {
 		a, b = b, a+b
 	}
 	return a

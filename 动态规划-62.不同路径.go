@@ -6,8 +6,6 @@
 
 问总共有多少条不同的路径？
 
-
-
 例如，上图是一个7 x 3 的网格。有多少可能的路径？
 
 说明：m 和 n 的值均不超过 100。
@@ -29,7 +27,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/unique-paths
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
+*/
 package leetcode
 
 func uniquePaths(m int, n int) int {
@@ -41,12 +39,12 @@ func uniquePaths(m int, n int) int {
 	}
 	//return uniquePaths(m-1, n) + uniquePaths(m, n-1)
 	k := make([]int, m)
-	for i:=0; i<m; i++ {
+	for i := 0; i < m; i++ {
 		k[i] = 1
 	}
-	for i:=2; i<=n;i++{
-		for j:=1;j<m;j++{
-			k[j]+=k[j-1]
+	for i := 2; i <= n; i++ {
+		for j := 1; j < m; j++ {
+			k[j] += k[j-1]
 		}
 	}
 	return k[m-1]

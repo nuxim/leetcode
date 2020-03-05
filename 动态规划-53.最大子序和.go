@@ -14,7 +14,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/maximum-subarray
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- */
+*/
 package leetcode
 
 func maxSubArray(nums []int) int {
@@ -27,7 +27,7 @@ func maxSubArray(nums []int) int {
 	}
 	max := nums[0]
 	k := nums[0]
-	for i:=1;i<n;i++{
+	for i := 1; i < n; i++ {
 		if k < nums[i] && k < 0 {
 			k = nums[i]
 			continue
